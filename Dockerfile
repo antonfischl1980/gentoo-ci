@@ -7,4 +7,8 @@ RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/
     emerge dev-util/pkgcheck app-portage/repoman dev-vcs/git && \
     rm -rf /var/cache/distfiles/*
 
+COPY repos-gentoo.conf /etc/portage/repos.conf/gentoo.conf
+
+RUN rm -rf /var/db/repos/gentoo && emerge --sync
+
 CMD [ "bash" ]
