@@ -4,7 +4,15 @@ FROM gentoo/stage3:amd64-nomultilib-openrc
 COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 
 RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/make.conf && \
-    emerge dev-util/pkgcheck app-portage/repoman app-admin/sudo dev-vcs/git app-portage/gentoolkit app-misc/jq && \
+    emerge --jobs=2 \
+	app-admin/sudo \
+	app-misc/jq \
+	app-portage/gentoolkit \
+	app-portage/repoman \
+	dev-python/pip \
+	dev-util/pkgcheck \
+	dev-vcs/git \
+	&& \
     rm -rf /var/cache/distfiles/*
 
 # initialize cpan
