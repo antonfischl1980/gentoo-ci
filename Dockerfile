@@ -9,7 +9,6 @@ RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/
 	app-misc/jq \
 	app-portage/gentoolkit \
 	app-portage/repoman \
-	dev-python/pip \
 	dev-util/pkgcheck \
 	dev-vcs/git \
 	&& \
