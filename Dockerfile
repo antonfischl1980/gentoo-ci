@@ -10,19 +10,18 @@ RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/
     rm -R /usr/share/{man,doc}/ && \
     emerge -tv --depclean && \
     find /usr/share/locale/ -maxdepth 1 -mindepth 1 \! -name "en*" -print0|xargs -r0 rm -Rv && \
-    emerge --jobs=2 \
+    FEATURES='-usersandbox' emerge --jobs=2 \
 	app-admin/sudo \
 	app-misc/jq \
 	app-portage/gentoolkit \
 	app-portage/repoman \
 	dev-util/pkgcheck \
 	dev-vcs/git \
+	dev-lang/go \
 	&& \
+    emerge -tv --depclean && \
     rm -rf /var/cache/distfiles/* /var/log/*.log && \
     wget "https://www.gentoo.org/dtd/metadata.dtd" -O /var/cache/distfiles/metadata.dtd
-
-# initialize cpan
-RUN cpan </dev/null || exit 0
 
 COPY repos-gentoo.conf /etc/portage/repos.conf/gentoo.conf
 
