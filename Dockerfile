@@ -18,6 +18,7 @@ RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/
 	dev-util/pkgcheck \
 	dev-vcs/git \
 	dev-lang/go \
+	net-fs/davfs2 \
 	&& \
     emerge -tv --depclean && \
     rm -rf /var/cache/distfiles/* /var/log/*.log && \
