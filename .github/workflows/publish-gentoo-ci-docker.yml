@@ -45,4 +45,12 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-
+      - name: Delete old images
+        uses: snok/container-retention-policy@v1
+        with:
+          image-names: gentoo-ci 
+          cut-off: Six month ago UTC
+          keep-at-least: 12
+          untagged-only: true
+          account-type: personal
+          token: ${{ secrets.PAT }}
