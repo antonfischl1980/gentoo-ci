@@ -14,7 +14,6 @@ RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/
 	app-admin/sudo \
 	app-misc/jq \
 	app-portage/gentoolkit \
-	app-portage/repoman \
 	dev-util/pkgcheck \
 	dev-vcs/git \
 	&& \
