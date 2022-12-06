@@ -12,6 +12,7 @@ RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/
     find /usr/share/locale/ -maxdepth 1 -mindepth 1 \! -name "en*" -print0|xargs -r0 rm -Rv && \
     FEATURES='-usersandbox' emerge --jobs=2 \
 	app-admin/sudo \
+	app-eselect/eselect-repository \
 	app-misc/jq \
 	app-portage/gentoolkit \
 	dev-util/pkgcheck \
