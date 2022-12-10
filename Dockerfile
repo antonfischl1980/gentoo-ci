@@ -16,6 +16,7 @@ RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/
 	app-misc/jq \
 	app-portage/gentoolkit \
 	dev-util/pkgcheck \
+	dev-util/shellcheck-bin \
 	dev-vcs/git \
 	&& \
     emerge -tv --depclean && \
