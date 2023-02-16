@@ -46,7 +46,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Delete old images
-        uses: snok/container-retention-policy@v1
+        uses: snok/container-retention-policy@v2
         with:
           image-names: gentoo-ci 
           cut-off: Six month ago UTC
