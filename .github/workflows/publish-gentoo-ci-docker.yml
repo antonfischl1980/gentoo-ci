@@ -48,9 +48,9 @@ jobs:
       - name: Delete old images
         uses: snok/container-retention-policy@v2
         with:
-          image-names: gentoo-ci 
-          cut-off: Six month ago UTC
-          keep-at-least: 12
-          untagged-only: true
+          image-names: gentoo-ci
+          cut-off: 1 month ago UTC
+          keep-at-least: 3
+          timestamp-to-use: created_at
           account-type: personal
           token: ${{ secrets.PAT }}
