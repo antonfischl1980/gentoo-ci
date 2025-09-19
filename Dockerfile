@@ -5,6 +5,7 @@ COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 
 RUN echo 'FEATURES="-ipc-sandbox -network-sandbox -pid-sandbox"' >>/etc/portage/make.conf && \
     echo 'LINGUAS="en"' >>/etc/portage/make.conf && \
+	getuto && \
     emerge -tuvDN @world && \
     emerge -C sys-apps/man-pages virtual/man && \
     rm -R /usr/share/{man,doc}/ && \
